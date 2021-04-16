@@ -1,0 +1,6 @@
+version: "3.0"
+
+services:
+  certexporter:
+    build: .
+    image: registry.gmasil.de/docker/cert-exporter:${TAG}
