@@ -4,6 +4,22 @@ This is a simple prometheus exporter to provide metrics when TLS certificates wi
 
 It is based on netcat for serving web request and openssl to download and read certificates.
 
+# Example
+
+The exporter will check all domains you specify in the environment variable `DOMAINS` and just output the amount of days until the certificate will become invalid. Then you visualize the data in a nice gauge for example with grafana:
+
+![Grafana Gauge](img/grafana.png)
+
+Here you can see an example output of the certificate-exporter:
+
+```
+# HELP cert_days_remaining Days until the certificate becomes invalid
+# TYPE cert_days_remaining gauge
+cert_days_remaining{domain="gmasil.de"} 55
+cert_days_remaining{domain="google.com"} 43
+cert_days_remaining{domain="example.com"} 43
+```
+
 # Build
 
 Build simply with docker:
