@@ -66,6 +66,24 @@ services:
 
 **Note:** Due to a bug in netcat you might have to disable ipv6 in your docker container as provided in both examples.
 
+## Prometheus
+
+In your `prometheus.yml` you can add the certificate-exporter like this:
+
+```yml
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "certexporter"
+    static_configs:
+      - targets:
+          - certexporter:80
+```
+
+**Note:** As the certificate-exporter will provide the metrics on all URIs, you can leave all defaults like scraping on the `/metrics` URI.
+
 ## License
 
 [GNU GPL v3 License](LICENSE.md)
