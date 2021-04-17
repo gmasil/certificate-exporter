@@ -6,7 +6,7 @@ It is based on netcat for serving web request and openssl to download and read c
 
 # Example
 
-The exporter will check all domains you specify in the environment variable `DOMAINS` and just output the amount of days until the certificate will become invalid. Then you visualize the data in a nice gauge for example with grafana:
+The exporter will start a webserver on port 80 (no HTTPS/TLS) and provide its metrics under every URI. The exporter checks all domains you specify in the environment variable `DOMAINS` and just output the amount of days until the certificate will become invalid. Then you visualize the data in a nice gauge for example with grafana:
 
 ![Grafana Gauge](img/grafana.png)
 
