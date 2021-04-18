@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 function printHeader () {
   echo "# HELP cert_days_remaining Days until the certificate becomes invalid"
