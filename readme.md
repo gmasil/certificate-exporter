@@ -47,7 +47,7 @@ You can specify which domains you want to monitor by providing a **comma separat
 Usage with docker:
 
 ```bash
-docker run -p 80:80 -e "DOMAINS=google.com,example.com" --sysctl net.ipv6.conf.all.disable_ipv6=1 registry.gmasil.de/docker/cert-exporter:1.0
+docker run -p 80:80 -e "DOMAINS=google.com,example.com" registry.gmasil.de/docker/cert-exporter:1.0
 ```
 
 Example docker-compose file:
@@ -58,13 +58,9 @@ version: '3'
 services:
   certexporter:
     image: registry.gmasil.de/docker/cert-exporter:1.0
-    sysctls:
-      - "net.ipv6.conf.all.disable_ipv6=1"
     environment:
       - "DOMAINS=google.com,example.com"
 ```
-
-**Note:** Due to a bug in netcat you might have to disable ipv6 in your docker container as provided in both examples.
 
 ## Prometheus
 
