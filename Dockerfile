@@ -7,4 +7,4 @@ ADD header.sh /header.sh
 
 EXPOSE 80
 
-CMD while true ; do nc -l -p 80 -e /header.sh /check-certs.sh ; done
+CMD nc -lk -p 80 -e /header.sh /check-certs.sh
